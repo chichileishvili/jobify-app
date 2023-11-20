@@ -8,6 +8,9 @@ import morgan from 'morgan'
 //routers
 import jobRouter from './routes/jobRouter.js'
 
+//middleware
+import errorHandlerMiddlware from './middleware/errorHandlerMIddleware.js'
+
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
@@ -28,12 +31,7 @@ app.use('*', (req, res) => {
   res.status(404).json({ msg: 'page not found' })
 })
 
-app.use((err, req, res, next) => {
-  console.log(err)
-  res.status(500).json({ msg: 'somthing went wrong' })
-
-  next()
-})
+app.use(errorHandlerMiddlware)
 
 const port = process.env.PORT || 5100
 
