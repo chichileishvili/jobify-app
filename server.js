@@ -5,6 +5,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 const app = express()
 import morgan from 'morgan'
+import { body, validationResult } from 'express-validator'
 //routers
 import jobRouter from './routes/jobRouter.js'
 
@@ -18,11 +19,6 @@ app.use(express.json())
 
 app.get('/', (req, res) => {
   res.send('hello word')
-})
-
-app.post('/', (req, res) => {
-  console.log(req)
-  res.json({ message: 'data recieved ', data: req.body })
 })
 
 app.use('/api/v1/jobs', jobRouter)
