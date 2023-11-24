@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Wrapper = styled.article`
   background: var(--background-secondary-color);
@@ -76,6 +76,6 @@ const Wrapper = styled.article`
   .edit-btn {
     margin-right: 0.5rem;
   }
-`;
+`
 
-export default Wrapper;
+export default Wrapper

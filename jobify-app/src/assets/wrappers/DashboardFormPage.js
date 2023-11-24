@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Wrapper = styled.section`
   border-radius: var(--border-radius);
@@ -41,6 +41,6 @@ const Wrapper = styled.section`
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
-`;
+`
 
-export default Wrapper;
+export default Wrapper
