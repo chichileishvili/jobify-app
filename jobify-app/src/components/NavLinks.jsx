@@ -1,7 +1,6 @@
 import { useDashboradContext } from '../pages/Dashboard'
 import links from '../utils/links'
 import { NavLink } from 'react-router-dom'
-import SmallSideBar from './SmallSideBar'
 
 const NavLinks = ({ isBigSidebar }) => {
   const { toggleSidebar, user } = useDashboradContext()
@@ -10,6 +9,8 @@ const NavLinks = ({ isBigSidebar }) => {
     <div className='nav-links'>
       {links.map((link) => {
         const { text, path, icon } = link
+        const { role } = user
+        if (path === 'admin' && role !== 'admin') return
         return (
           <NavLink
             to={path}
