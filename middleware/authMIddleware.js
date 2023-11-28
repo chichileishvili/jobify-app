@@ -1,4 +1,4 @@
-import { UnathorizedError, UnauthenticatedError } from '../errors/customErrors.js'
+import { UnathorizedError, UnauthenticatedError, BadRequestError } from '../errors/customErrors.js'
 import { verifyJTW } from '../utils/tokenUtils.js'
 
 export const authenticateUser = (req, res, next) => {
@@ -7,7 +7,8 @@ export const authenticateUser = (req, res, next) => {
   if (!token) throw new UnauthenticatedError('authentication invalid')
   try {
     const { userId, role } = verifyJTW(token)
-    req.user = { userId, role }
+    const testUser = userId === '6565d7e9a32a1c93ca28442f'
+    req.user = { userId, role, testUser }
 
     next()
   } catch (error) {
@@ -23,4 +24,10 @@ export const authorizedPermisions = (...roles) => {
 
     next()
   }
+}
+
+export const checkForTestUser = (req, res, next) => {
+  if (req.user.testUser) throw new BadRequestError('Demo user. read only')
+
+  next()
 }

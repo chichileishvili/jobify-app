@@ -1,8 +1,8 @@
-import { FormRow, FormRowSelect } from '../components'
+import { ButtonBtn, FormRow, FormRowSelect } from '../components'
 import Wrapper from '../assets/wrappers/DashboardFormPage'
 import { useLoaderData, useParams } from 'react-router-dom'
 import { JOB_STATUS, JOB_TYPE } from '../../../utils/constants'
-import { Form, useNavigation, redirect } from 'react-router-dom'
+import { Form, redirect } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import customFetch from '../utils/customFetch'
 
@@ -33,9 +33,6 @@ export const action = async ({ request, params }) => {
 const EditJob = () => {
   const { job } = useLoaderData()
 
-  const navigation = useNavigation()
-  const isSubmiting = navigation.state === 'submitting'
-
   return (
     <Wrapper>
       <Form method='patch' className='form'>
@@ -61,10 +58,7 @@ const EditJob = () => {
             defaultValue={job.job}
             list={Object.values(JOB_TYPE)}
           />
-          <button className='btn btn-block form-btn' type='submit' disabled={isSubmiting}>
-            {' '}
-            {isSubmiting ? 'submitting...' : 'submit'}
-          </button>
+          <ButtonBtn formBtn />
         </div>
       </Form>
     </Wrapper>
