@@ -9,6 +9,10 @@ import JobsContainer from './JobsContainer'
 import SearchContainer from './SearchCOntainer'
 import StatItem from './StatItem'
 import ButtonBtn from './ButtonBtn'
+import StatsContainer from './StatsContainer'
+import BarChart from './BarChart'
+import ChartsContainer from './ChartsContainer'
+import AreaChartComponent from './AreaChart'
 export {
   Logo,
   FormRow,
@@ -21,4 +25,8 @@ export {
   JobsContainer,
   StatItem,
   ButtonBtn,
+  AreaChartComponent,
+  BarChart,
+  ChartsContainer,
+  StatsContainer,
 }
