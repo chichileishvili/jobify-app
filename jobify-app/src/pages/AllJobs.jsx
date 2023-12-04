@@ -4,11 +4,15 @@ import customFetch from '../utils/customFetch'
 import { useLoaderData } from 'react-router-dom'
 import { useContext, createContext } from 'react'
 
-export const loader = async () => {
-  try {
-    const { data } = await customFetch.get('/jobs')
+export const loader = async ({ request }) => {
+  const params = Object.fromEntries([...new URL(request.url).searchParams.entries()])
 
-    return { data }
+  try {
+    const { data } = await customFetch.get('/jobs', {
+      params,
+    })
+
+    return { data, searchValues: { ...params } }
   } catch (error) {
     toast.error(error?.response?.data?.msg)
     return error
@@ -16,10 +20,10 @@ export const loader = async () => {
 }
 const AllJobsContext = createContext()
 const AllJobs = () => {
-  const { data } = useLoaderData()
-  console.log(data)
+  const { data, searchValues } = useLoaderData()
+
   return (
-    <AllJobsContext.Provider value={{ data }}>
+    <AllJobsContext.Provider value={{ data, searchValues }}>
       <SearchContainer />
       <JobsContainer />
     </AllJobsContext.Provider>
