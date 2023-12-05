@@ -45,6 +45,10 @@ app.use('/api/v1/jobs', authenticateUser, jobRouter)
 app.use('/api/v1/user', authenticateUser, userRouter)
 app.use('/api/v1/auth', authRouter)
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './public', 'index.html'))
+})
+
 app.use('*', (req, res) => {
   res.status(404).json({ msg: 'page not found' })
 })

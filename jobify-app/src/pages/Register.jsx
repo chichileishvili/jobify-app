@@ -24,13 +24,13 @@ const Register = () => {
         <Logo />
         <h3> Register</h3>
 
-        <FormRow type='text' name='name' defaultValue=' gela' />
-        <FormRow type='text' name='lastName' defaultValue='nela' labelText='last name' />
+        <FormRow type='text' name='name' />
+        <FormRow type='text' name='lastName' labelText='last name' />
 
-        <FormRow type='email' name='email' defaultValue='Giorgi@gmail.com' />
-        <FormRow type='text' name='location' defaultValue='tbilisi' />
+        <FormRow type='email' name='email' />
+        <FormRow type='text' name='location' />
 
-        <FormRow type='password' name='password' defaultValue='nanan123' />
+        <FormRow type='password' name='password' />
         <ButtonBtn />
         <p>
           Already a member?
