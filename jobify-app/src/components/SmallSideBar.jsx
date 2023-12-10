@@ -1,15 +1,22 @@
 import Wrapper from '../assets/wrappers/SmallSidebar'
-import { useDashboradContext } from '../pages/Dashboard'
+import { toggleSideBar } from '../store/dahsboard/dashboardReducer'
 import { FaTimes } from 'react-icons/fa'
 import Logo from './Logo'
-import links from '../utils/links'
+import { useDispatch, useSelector } from 'react-redux'
 import NavLinks from './NavLinks'
 const SmallSideBar = () => {
-  const { showSideBar, toggleSidebar } = useDashboradContext()
+  const dispatch = useDispatch()
 
+  // const { showSideBar, toggleSidebar } = useDashboradContext()
+  const toggleSidebar = () => {
+    dispatch(toggleSideBar())
+  }
+  const isShowSideBar = useSelector((state) => state.dashBoard.sideBar)
+
+  console.log(isShowSideBar)
   return (
     <Wrapper>
-      <div className={showSideBar ? 'sidebar-container show-sidebar' : 'sidebar-container'}>
+      <div className={isShowSideBar ? 'sidebar-container show-sidebar' : 'sidebar-container'}>
         <div className='content'>
           {' '}
           <button onClick={toggleSidebar} type='button' className='close-btn'>

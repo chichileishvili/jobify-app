@@ -1,11 +1,10 @@
 import Wrapper from '../assets/wrappers/BigSidebar'
 import NavLinks from './NavLinks'
 import Logo from './Logo'
-import { useDashboradContext } from '../pages/Dashboard'
+import { useSelector } from 'react-redux'
 
 const BigSideBar = () => {
-  const { showSideBar } = useDashboradContext()
-
+  const showSideBar = useSelector((state) => state.dashBoard.sideBar)
   return (
     <Wrapper>
       <div className={showSideBar ? ' sidebar-container' : ' show-sidebar sidebar-container'}>

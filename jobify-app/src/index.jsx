@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom/client'
 import 'normalize.css'
 import './assets/css/index.css'
 import App from './App'
-import axios from 'axios'
-import customFetch from './utils/customFetch'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <App />
-    <ToastContainer position='top-center' />
+    <Provider store={store}>
+      <App />
+      <ToastContainer position='top-center' />
+    </Provider>
   </React.StrictMode>
 )
