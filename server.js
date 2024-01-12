@@ -55,7 +55,7 @@ app.use('*', (req, res) => {
 
 app.use(errorHandlerMiddlware)
 
-const port = process.env.PORT || 5100
+const port = process.env.PORT || 4000
 
 try {
   await mongoose.connect(process.env.MONGO_URL)

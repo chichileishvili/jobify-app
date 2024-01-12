@@ -37,5 +37,8 @@
     "react-toastify": "^9.1.2",
     "recharts": "^2.5.0",
     "redux": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.47"
   }
 }

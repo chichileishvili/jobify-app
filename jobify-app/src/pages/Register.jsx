@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import { Logo, FormRow, Alert, ButtonBtn } from '../components'
+import { Logo, FormRow, ButtonBtn } from '../components'
 import Wrapper from '../assets/wrappers/RegisterAndLoginPage'
 import { Form, redirect, Link } from 'react-router-dom'
 import customFetch from '../utils/customFetch'
