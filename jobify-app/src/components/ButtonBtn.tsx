@@ -2,7 +2,7 @@ import { useNavigation } from 'react-router-dom'
 import React from 'react'
 
 export interface ButtonBtnProps {
-  formBtn?: string
+  formBtn?: boolean
 }
 
 const ButtonBtn = ({ formBtn }: ButtonBtnProps) => {

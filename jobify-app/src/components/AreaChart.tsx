@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {
   ResponsiveContainer,
   AreaChart,
@@ -6,9 +8,19 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-} from 'recharts'
+} from 'recharts';
 
-const AreaChartComponent = ({ data }) => {
+
+interface ChartData {
+  date: string;  
+  count: number;
+}
+
+interface AreaChartComponentProps {
+  data: ChartData[];
+}
+
+const AreaChartComponent: React.FC<AreaChartComponentProps> = ({ data }) => {
   return (
     <ResponsiveContainer width='100%' height={300}>
       <AreaChart data={data} margin={{ top: 50 }}>
@@ -19,7 +31,7 @@ const AreaChartComponent = ({ data }) => {
         <Area type='monotone' dataKey='count' stroke='#2cb1bc' fill='#bef8fd' />
       </AreaChart>
     </ResponsiveContainer>
-  )
-}
+  );
+};
 
-export default AreaChartComponent
+export default AreaChartComponent;

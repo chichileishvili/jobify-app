@@ -3,10 +3,40 @@ import { FormRow, FormRowSelect, ButtonBtn } from '.'
 import { Form, useSubmit, Link } from 'react-router-dom'
 import { JOB_SORT_BY, JOB_STATUS, JOB_TYPE } from '../../../utils/constants'
 import { useAllJobsContext } from '../pages/AllJobs'
+import React from 'react'
 
-const SearchCOntainer = () => {
-  const { searchValues } = useAllJobsContext()
-  const { search, jobStatus, job, sort } = searchValues
+
+export enum Job_Status {
+  PENDING = 'pending',
+  ACTIVE = 'active',
+  COMPLETED = 'competed',
+}
+
+export enum Job_Type {
+  FULL_TIME = 'full-time',
+  PART_TIME = 'part-time',
+  INTERNSHIP = 'internship',
+}
+
+export enum Job_Sort{ 
+  NEWEST = 'newest',
+  OLDEST = 'oldest',
+  HIGHEST = 'highest',
+  LOWEST = 'lowest'
+}
+
+
+export interface searchValues { 
+  search: string
+  jobStatus: Job_Status
+  job: Job_Type
+  sort: Job_Sort
+}
+
+
+const SearchCOntainer = () => {  
+  const { searchValues } = useAllJobsContext() as { searchValues: searchValues }
+  const { search, jobStatus, job, sort } = searchValues 
   const submit = useSubmit()
   const debounce = (onChange) => {
     let timeout

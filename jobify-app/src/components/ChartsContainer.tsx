@@ -9,6 +9,7 @@ export interface ChartsContainerProps {
 }
 
 const ChartsContainer = ({ data }: ChartsContainerProps) => {
+  console.log(data)
   const [barChart, setBarChart] = useState(true)
 
   return (

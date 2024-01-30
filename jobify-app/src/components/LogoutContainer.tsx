@@ -1,4 +1,4 @@
-import { useDashboradContext } from '../pages/Dashboard'
+import { useDashboardContext } from '../pages/Dashboard'
 import { useState } from 'react'
 import { FaUserCircle, FaCaretDown } from 'react-icons/fa'
 import Wrapper from '../assets/wrappers/LogoutContainer'
@@ -6,7 +6,7 @@ import React from 'react'
 
 const LogoutContainer = () => {
   const [showLogout, setShowLogout] = useState(false)
-  const { user, logoutUser } = useDashboradContext()
+  const { user, logoutUser } = useDashboardContext()
   return (
     <Wrapper>
       <button type='button' className='btn logout-btn' onClick={() => setShowLogout(!showLogout)}>

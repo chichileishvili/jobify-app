@@ -6,7 +6,7 @@ const getInitialTheme = (): boolean => {
 }
 
 export interface DashBoardState {
-  isDarkTheme: boolean
+  isDarkTheme: boolean 
   sideBar: boolean
 }
 

@@ -1,15 +1,15 @@
-import { useDashboradContext } from '../pages/Dashboard'
+import { useDashboardContext } from '../pages/Dashboard'
+import { DashboardProps } from '../pages/Dashboard'
 import links from '../utils/links'
 import { NavLink } from 'react-router-dom'
-import React from 'react'
+import React, { useContext } from 'react'
 
 export interface NavLinksProps {
   isBigSidebar?: boolean
 }
 
 const NavLinks = ({ isBigSidebar }: NavLinksProps) => {
-  const { toggleSidebar, user } = useDashboradContext()
-
+  const { toggleSidebar, user } = useDashboardContext()
   return (
     <div className='nav-links'>
       {links.map((link) => {
@@ -20,7 +20,7 @@ const NavLinks = ({ isBigSidebar }: NavLinksProps) => {
           <NavLink
             to={path}
             key={text}
-            onClick={isBigSidebar ? null : toggleSidebar}
+            onClick={isBigSidebar ? () => {} : toggleSidebar}
             className='nav-link'
             end>
             <span className='icon'> {icon}</span>
